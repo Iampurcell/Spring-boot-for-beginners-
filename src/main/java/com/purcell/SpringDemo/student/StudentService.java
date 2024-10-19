@@ -1,28 +1,18 @@
 package com.purcell.SpringDemo.student;
 
-import org.springframework.stereotype.Service;
-
-import java.time.LocalDate;
 import java.util.List;
 
-@Service
-public class StudentService {
-    public List<Student> findAllStudents(){
-        return List.of(
-                new Student(
-                        "Danniel",
-                        "Purcell",
-                        LocalDate.now(),
-                        21,
-                        "iampurcell9@gmail.com"
-                ),
-                new Student(
-                        "Danniel",
-                        "Deusy",
-                        LocalDate.now(),
-                        25,
-                        "dannieldeus9@gmail.com"
-                )
-        );
-    }
+
+public interface StudentService {
+
+    Student save(Student s); //this method will save students in the memory
+
+    public List<Student> findAllStudents();
+
+    Student findByEmail(String email); //This will fetch or return the students with the same email
+
+    Student update(Student s);
+
+    void delete(String email); //This will delete student with the same email
+
 }
